@@ -240,7 +240,7 @@
 </div>
 
 
-<div class="modal" id="reviewModal">
+<div class="modal modal--active" id="reviewModal">
     <div class="modal__bg _close-modal"></div>
     <div class="modal__dialog">
         <div class="modal__top">
@@ -251,6 +251,106 @@
         <div class="modal__content">
             <form action="" class="modal__form">
                 <div class="modal__fields">
+                    <fieldset class="fg">
+                        <input type="text" placeholder="Адрес">
+                    </fieldset>
+                    <div class="modal__map">
+                        <script type="text/javascript">
+
+    let points = [
+        [55.751652, 37.566193],
+        [55.746209, 37.580435],
+        [55.725063, 37.638831],
+        [55.784774, 37.623626],
+        [55.833065, 37.484954],
+        [55.779249, 37.589402],
+        [55.700454, 37.621774],
+        [55.774104, 37.651861],
+        [55.756623, 37.616403],
+        [55.756658, 37.614037],
+        [55.758258, 37.620972],
+        [55.757436, 37.613120],
+        [55.762988, 37.617200],
+        [55.758013, 37.604287],
+        [55.748185, 37.625711]
+    ]
+
+    let markers = [];
+
+    points.forEach((el)=>{
+        let point = {
+            type: "Feature",
+            id: "markerID",
+            geometry: {
+                type: "Point",
+                coordinates: el
+            },
+            "options": {"iconColor": "#FFDB06", "preset": "islands#blueCircleIcon"}
+        }
+        markers.push(point)
+    })
+
+    ymaps.ready(init);
+
+    function init() {
+        var myMap = new ymaps.Map("map", {
+            center: [55.7522, 37.6156],
+            zoom: 13,
+            controls: ['zoomControl']
+        });
+
+        myMap.behaviors.disable('scrollZoom');
+
+        var objectManager = new ymaps.ObjectManager({
+            // группировать маркеры
+            clusterize: true
+        });
+
+        var customClusterIconLayout = ymaps.templateLayoutFactory.createClass(
+            '<div class="balloon__icon">$[properties.geoObjects.length]</div>'),
+            clusterIcons = [
+                {
+                    href: 'map_bubble.svg',
+                    size: [75, 75],
+                    // Отступ, чтобы центр картинки совпадал с центром кластера.
+                    offset: [-23, -55]
+                }],
+            customItemContentLayout = ymaps.templateLayoutFactory.createClass(
+                // Флаг "raw" означает, что данные вставляют "как есть" без экранирования html.
+                '<h2 class=ballon_header>{{ properties.balloonContentHeader|raw }}</h2>' +
+                '<div class=ballon_body>{{ properties.balloonContentBody|raw }}</div>' +
+                '<div class=ballon_footer>{{ properties.balloonContentFooter|raw }}</div>'
+            );
+        var customPlacemarkLayout = ymaps.templateLayoutFactory.createClass(
+            '<div class=placemark_layout_container>{{ properties.cost }}</div>'
+        );
+        // Создаем собственный макет с информацией о выбранном геообъекте.
+        var customBalloonContentLayout = ymaps.templateLayoutFactory.createClass([
+            '<h2 class=ballon_header>{{ properties.rooms }}</h2>'
+        ].join(''));
+
+        myMap.geoObjects.add(objectManager);
+        objectManager.add({type: "FeatureCollection",  "features": markers});
+        objectManager.objects.options.set({
+            iconLayout: customPlacemarkLayout,
+            iconShape: {
+                type: 'Rectangle',
+                coordinates: [
+                    [-70, -60], [70, 0]
+                ]
+            },
+            balloonContentLayout: customBalloonContentLayout,
+        });
+        objectManager.clusters.options.set({
+            clusterIcons: clusterIcons,
+            clusterIconContentLayout: customClusterIconLayout,
+        });
+
+    }
+</script>
+<div class="map" id="map"></div>
+
+                    </div>
                     <div class="ratings">
                         <div class="ratings__group">
     <div class="ratings__title">
