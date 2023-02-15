@@ -1,0 +1,434 @@
+<!DOCTYPE html> <html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="css/libs.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=9133eb49-3a97-4b2d-90be-6b80a97a5036" type="text/javascript"></script>
+    <title>Главная</title>
+</head>
+
+
+
+<style>
+    .wrapper a {
+        font-size: 30px;
+        text-transform: capitalize;
+    }
+
+    .wrapper button {
+        margin-bottom: 25px;
+        width: 300px;
+        height: 45px;
+    }
+</style>
+
+<body class="page">
+
+    <div class="wrapper" style="padding: 50px;">
+        <a href="index.html" style="display: block; margin-bottom: 20px;">
+            Главная
+        </a>
+
+
+
+
+        <button style="border: 2px solid #000;margin-bottom: 20px;" data-modal="infoModal">
+            Подтверждение действия
+        </button>
+        <button style="border: 2px solid #000;margin-bottom: 20px;" data-modal="regModal">
+            Регистрация
+        </button>
+        <button style="border: 2px solid #000;margin-bottom: 20px;" data-modal="confirmModal">
+            Подтверждение
+        </button>
+        <button style="border: 2px solid #000;margin-bottom: 20px;" data-modal="finishRegModal">
+            Завершение регистрации
+        </button>
+        <button style="border: 2px solid #000;margin-bottom: 20px;" data-modal="loginModal">
+            Вход
+        </button>
+        <button style="border: 2px solid #000;margin-bottom: 20px;" data-modal="reviewModal">
+            Публикация отзыва
+        </button>
+
+    </div>
+
+    <div class="modal" id="infoModal">
+    <div class="modal__bg _close-modal"></div>
+    <div class="modal__dialog">
+        <div class="modal__top">
+            <div class="modal__title text26 mob-text20 bold-text accent2-text">
+                Подтверждение действия
+            </div>
+        </div>
+        <div class="modal__content">
+            <div class="modal__text text18 gray-text">
+                Чтобы ставить лайки на отзывы, необходимо
+                <a href="">войти</a>или
+                <a href="">зарегистрироваться</a>
+            </div>
+            <button class="modal__btn m-btn shadow m-btn-accent">
+                <span>Хорошо</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="regModal">
+    <div class="modal__bg _close-modal"></div>
+    <div class="modal__dialog">
+        <div class="modal__top">
+            <div class="modal__title text26 mob-text20 bold-text accent2-text">
+                Регистрация
+            </div>
+        </div>
+        <div class="modal__content">
+            <form action="" class="modal__form">
+                <div class="modal__fields">
+                    <fieldset class="fg">
+                        <input type="tel" placeholder="Номер телефона">
+                    </fieldset>
+                </div>
+                <div class="modal__hint text16 mob-text14 gray-text">
+                    Мы отправим вам СМС, чтобы подтвердить номер телефона
+                </div>
+                <button class="modal__btn m-btn shadow m-btn-accent">
+                    <span>Продолжить</span>
+                </button>
+            </form>
+            <div class="modal__or">
+                <span class="text16 gray-text">
+                    или
+                </span>
+            </div>
+            <div class="social">
+    <a href="" class="social__item">
+        <img src="img/vk.svg" alt="">
+    </a>
+    <a href="" class="social__item">
+        <img src="img/ok.svg" alt="">
+    </a>
+    <a href="" class="social__item">
+        <img src="img/гугл.svg" alt="">
+    </a>
+    <a href="" class="social__item">
+        <img src="img/яндекс.svg" alt="">
+    </a>
+    <a href="" class="social__item">
+        <img src="img/майл.svg" alt="">
+    </a>
+    <a href="" class="social__item">
+        <img src="img/телеграм.svg" alt="">
+    </a>
+</div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="confirmModal">
+    <div class="modal__bg _close-modal"></div>
+    <div class="modal__dialog">
+        <div class="modal__top">
+            <div class="modal__title text26 mob-text20 bold-text accent2-text">
+                Подтверждение
+            </div>
+        </div>
+        <div class="modal__content">
+            <form action="" class="modal__form">
+                <div class="modal__fields">
+                    <fieldset class="fg">
+                        <input type="text" placeholder="Код">
+                    </fieldset>
+                </div>
+                <div class="modal__hint text16 mob-text14 gray-text">
+                    Введите код, отправенный на ваш номер
+                </div>
+                <button class="modal__btn m-btn shadow m-btn-accent">
+                    <span>Продолжить</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="finishRegModal">
+    <div class="modal__bg _close-modal"></div>
+    <div class="modal__dialog">
+        <div class="modal__top">
+            <div class="modal__title text26 mob-text20 bold-text accent2-text">
+                Завершение регистрации
+            </div>
+        </div>
+        <div class="modal__content">
+            <form action="" class="modal__form">
+                <div class="modal__fields">
+                    <fieldset class="fg">
+                        <input type="text" placeholder="Имя Фамилия">
+                    </fieldset>
+                    <fieldset class="fg">
+                        <input class="date-input" type="text" placeholder="Дата рождения">
+                    </fieldset>
+                    <fieldset class="fg">
+                        <input type="email" placeholder="Электронная почта">
+                    </fieldset>
+                </div>
+                <button class="modal__btn m-btn shadow m-btn-accent">
+                    <span>Завершить</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-login" id="loginModal">
+    <div class="modal__bg _close-modal"></div>
+    <div class="modal__dialog">
+        <div class="modal__top">
+            <div class="modal__title text26 mob-text20 bold-text accent2-text">
+                Вход
+            </div>
+        </div>
+        <div class="modal__content">
+            <div class="social">
+    <a href="" class="social__item">
+        <img src="img/vk.svg" alt="">
+    </a>
+    <a href="" class="social__item">
+        <img src="img/ok.svg" alt="">
+    </a>
+    <a href="" class="social__item">
+        <img src="img/гугл.svg" alt="">
+    </a>
+    <a href="" class="social__item">
+        <img src="img/яндекс.svg" alt="">
+    </a>
+    <a href="" class="social__item">
+        <img src="img/майл.svg" alt="">
+    </a>
+    <a href="" class="social__item">
+        <img src="img/телеграм.svg" alt="">
+    </a>
+</div>
+
+            <form action="" class="modal__form">
+                <div class="modal__fields">
+                    <fieldset class="fg">
+                        <input type="tel" placeholder="Номер телефона">
+                    </fieldset>
+                </div>
+                <button class="modal__btn m-btn shadow m-btn-accent">
+                    <span>Продолжить</span>
+                </button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="reviewModal">
+    <div class="modal__bg _close-modal"></div>
+    <div class="modal__dialog">
+        <div class="modal__top">
+            <div class="modal__title text26 mob-text20 bold-text accent2-text">
+                Публикация отзыва
+            </div>
+        </div>
+        <div class="modal__content">
+            <form action="" class="modal__form">
+                <div class="modal__fields">
+                    <div class="ratings">
+                        <div class="ratings__group">
+    <div class="ratings__title">
+        <span class="text18">
+            Чистота
+        </span>
+    </div>
+    <div class="rating-input" data-total-rating="0" data-rating-code="1">
+        <div class="rating-input__item" data-rating-value="5">
+    <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 0L12.5275 6.52123L19.5106 6.90983L14.0895 11.3288L15.8779 18.0902L10 14.3L4.12215 18.0902L5.91046 11.3288L0.489435 6.90983L7.47252 6.52123L10 0Z" fill="#ADADAD"/>
+    </svg>
+</div>
+<div class="rating-input__item" data-rating-value="4">
+    <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 0L12.5275 6.52123L19.5106 6.90983L14.0895 11.3288L15.8779 18.0902L10 14.3L4.12215 18.0902L5.91046 11.3288L0.489435 6.90983L7.47252 6.52123L10 0Z" fill="#ADADAD"/>
+    </svg>
+</div>
+<div class="rating-input__item" data-rating-value="3">
+    <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 0L12.5275 6.52123L19.5106 6.90983L14.0895 11.3288L15.8779 18.0902L10 14.3L4.12215 18.0902L5.91046 11.3288L0.489435 6.90983L7.47252 6.52123L10 0Z" fill="#ADADAD"/>
+    </svg>
+</div>
+<div class="rating-input__item" data-rating-value="2">
+    <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 0L12.5275 6.52123L19.5106 6.90983L14.0895 11.3288L15.8779 18.0902L10 14.3L4.12215 18.0902L5.91046 11.3288L0.489435 6.90983L7.47252 6.52123L10 0Z" fill="#ADADAD"/>
+    </svg>
+</div>
+<div class="rating-input__item" data-rating-value="1">
+    <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 0L12.5275 6.52123L19.5106 6.90983L14.0895 11.3288L15.8779 18.0902L10 14.3L4.12215 18.0902L5.91046 11.3288L0.489435 6.90983L7.47252 6.52123L10 0Z" fill="#ADADAD"/>
+    </svg>
+</div>
+<input class="rating-input__field" type="number" value="0">
+
+    </div>
+</div>
+
+                        <div class="ratings__group">
+    <div class="ratings__title">
+        <span class="text18">
+            Общение
+        </span>
+    </div>
+    <div class="rating-input" data-total-rating="0" data-rating-code="1">
+        <div class="rating-input__item" data-rating-value="5">
+    <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 0L12.5275 6.52123L19.5106 6.90983L14.0895 11.3288L15.8779 18.0902L10 14.3L4.12215 18.0902L5.91046 11.3288L0.489435 6.90983L7.47252 6.52123L10 0Z" fill="#ADADAD"/>
+    </svg>
+</div>
+<div class="rating-input__item" data-rating-value="4">
+    <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 0L12.5275 6.52123L19.5106 6.90983L14.0895 11.3288L15.8779 18.0902L10 14.3L4.12215 18.0902L5.91046 11.3288L0.489435 6.90983L7.47252 6.52123L10 0Z" fill="#ADADAD"/>
+    </svg>
+</div>
+<div class="rating-input__item" data-rating-value="3">
+    <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 0L12.5275 6.52123L19.5106 6.90983L14.0895 11.3288L15.8779 18.0902L10 14.3L4.12215 18.0902L5.91046 11.3288L0.489435 6.90983L7.47252 6.52123L10 0Z" fill="#ADADAD"/>
+    </svg>
+</div>
+<div class="rating-input__item" data-rating-value="2">
+    <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 0L12.5275 6.52123L19.5106 6.90983L14.0895 11.3288L15.8779 18.0902L10 14.3L4.12215 18.0902L5.91046 11.3288L0.489435 6.90983L7.47252 6.52123L10 0Z" fill="#ADADAD"/>
+    </svg>
+</div>
+<div class="rating-input__item" data-rating-value="1">
+    <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 0L12.5275 6.52123L19.5106 6.90983L14.0895 11.3288L15.8779 18.0902L10 14.3L4.12215 18.0902L5.91046 11.3288L0.489435 6.90983L7.47252 6.52123L10 0Z" fill="#ADADAD"/>
+    </svg>
+</div>
+<input class="rating-input__field" type="number" value="0">
+
+    </div>
+</div>
+
+                        <div class="ratings__group">
+    <div class="ratings__title">
+        <span class="text18">
+            Местоположение
+        </span>
+    </div>
+    <div class="rating-input" data-total-rating="0" data-rating-code="1">
+        <div class="rating-input__item" data-rating-value="5">
+    <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 0L12.5275 6.52123L19.5106 6.90983L14.0895 11.3288L15.8779 18.0902L10 14.3L4.12215 18.0902L5.91046 11.3288L0.489435 6.90983L7.47252 6.52123L10 0Z" fill="#ADADAD"/>
+    </svg>
+</div>
+<div class="rating-input__item" data-rating-value="4">
+    <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 0L12.5275 6.52123L19.5106 6.90983L14.0895 11.3288L15.8779 18.0902L10 14.3L4.12215 18.0902L5.91046 11.3288L0.489435 6.90983L7.47252 6.52123L10 0Z" fill="#ADADAD"/>
+    </svg>
+</div>
+<div class="rating-input__item" data-rating-value="3">
+    <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 0L12.5275 6.52123L19.5106 6.90983L14.0895 11.3288L15.8779 18.0902L10 14.3L4.12215 18.0902L5.91046 11.3288L0.489435 6.90983L7.47252 6.52123L10 0Z" fill="#ADADAD"/>
+    </svg>
+</div>
+<div class="rating-input__item" data-rating-value="2">
+    <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 0L12.5275 6.52123L19.5106 6.90983L14.0895 11.3288L15.8779 18.0902L10 14.3L4.12215 18.0902L5.91046 11.3288L0.489435 6.90983L7.47252 6.52123L10 0Z" fill="#ADADAD"/>
+    </svg>
+</div>
+<div class="rating-input__item" data-rating-value="1">
+    <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 0L12.5275 6.52123L19.5106 6.90983L14.0895 11.3288L15.8779 18.0902L10 14.3L4.12215 18.0902L5.91046 11.3288L0.489435 6.90983L7.47252 6.52123L10 0Z" fill="#ADADAD"/>
+    </svg>
+</div>
+<input class="rating-input__field" type="number" value="0">
+
+    </div>
+</div>
+
+                        <div class="ratings__group">
+    <div class="ratings__title">
+        <span class="text18">
+            Оправдание цены
+        </span>
+    </div>
+    <div class="rating-input" data-total-rating="0" data-rating-code="1">
+        <div class="rating-input__item" data-rating-value="5">
+    <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 0L12.5275 6.52123L19.5106 6.90983L14.0895 11.3288L15.8779 18.0902L10 14.3L4.12215 18.0902L5.91046 11.3288L0.489435 6.90983L7.47252 6.52123L10 0Z" fill="#ADADAD"/>
+    </svg>
+</div>
+<div class="rating-input__item" data-rating-value="4">
+    <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 0L12.5275 6.52123L19.5106 6.90983L14.0895 11.3288L15.8779 18.0902L10 14.3L4.12215 18.0902L5.91046 11.3288L0.489435 6.90983L7.47252 6.52123L10 0Z" fill="#ADADAD"/>
+    </svg>
+</div>
+<div class="rating-input__item" data-rating-value="3">
+    <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 0L12.5275 6.52123L19.5106 6.90983L14.0895 11.3288L15.8779 18.0902L10 14.3L4.12215 18.0902L5.91046 11.3288L0.489435 6.90983L7.47252 6.52123L10 0Z" fill="#ADADAD"/>
+    </svg>
+</div>
+<div class="rating-input__item" data-rating-value="2">
+    <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 0L12.5275 6.52123L19.5106 6.90983L14.0895 11.3288L15.8779 18.0902L10 14.3L4.12215 18.0902L5.91046 11.3288L0.489435 6.90983L7.47252 6.52123L10 0Z" fill="#ADADAD"/>
+    </svg>
+</div>
+<div class="rating-input__item" data-rating-value="1">
+    <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 0L12.5275 6.52123L19.5106 6.90983L14.0895 11.3288L15.8779 18.0902L10 14.3L4.12215 18.0902L5.91046 11.3288L0.489435 6.90983L7.47252 6.52123L10 0Z" fill="#ADADAD"/>
+    </svg>
+</div>
+<input class="rating-input__field" type="number" value="0">
+
+    </div>
+</div>
+
+                    </div>
+                    <fieldset class="fg">
+                        <textarea placeholder="Текст отзыва (256 символов)"></textarea>
+                    </fieldset>
+                    <div class="file">
+                        <button type="button" class="file__upload m-btn">
+                            <span class="text16">
+                                Загрузка фото
+                            </span>
+                            <input multiple class="img-upload" type="file">
+                        </button>
+                        <div class="file__slider">
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+<!--                                    <div class="swiper-slide img-file">-->
+<!--                                        <img src="img/file.webp" alt="">-->
+<!--                                        <button type="button" class="img-file__remove m-btn">-->
+<!--                                            <img src="img/remove.svg" alt="">-->
+<!--                                        </button>-->
+<!--                                    </div>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="modal__btn m-btn shadow m-btn-accent">
+                    <span>Опубликовать</span>
+                </button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+    <!--  -->
+    <script src="js/libs.min.js"></script>
+<script src="js/main.min.js"></script>
+
+</body>
+
+</html>
